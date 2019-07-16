@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>Mood App</h1>
+
+    <div>
+        <div class="error-div" *ngIf="errorForm">
+            <p>Please complete all fields</p>
+        </div>
+        <div class="success-div" *ngIf="successMsg">
+            <p>Your entry was added to the records</p>
+        </div>
+        <div class="fg">
+            <div>
+                <label for="#name">What's your name?</label>
+            </div>
+            <input id="name" [(ngModel)]="name" />
+        </div>
+        <div class="fg">
+            <div>
+                <label for="#mood">How do you feel today?</label>
+            </div>
+            <input id="mood" [(ngModel)]="mood" />
+        </div>
+
+        <div id="stmt" *ngIf="name && mood">
+            <p>{{ name }} is {{ mood }} today.</p>
+        </div>
+
+        <div class="btn-holder">
+            <button (click)="save()">Save</button>
+        </div>
+    </div>
+    <div>
+        <h3>How other people feel today</h3>
+        <div *ngIf="isLoading" class="msg">
+            <small>Data is loading please wait...</small>
+        </div>
+        <table *ngIf="!isEmpty">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Mood</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of entries">
+                    <td>{{ e.name }}</td>
+                    <td>{{ e.mood }}</td>
+                    <td>{{ e.date | date:"medium" }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="isEmpty">
+            <small>No data to be displayed</small>
+        </div>
+    </div>
+</div>

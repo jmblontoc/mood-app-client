@@ -1,0 +1,53 @@
+* {
+    font-family: sans-serif;
+}
+
+.container {
+
+    padding: 10px;
+
+    .fg {
+
+        input {
+            width: 150px;
+            border: none;
+            border-bottom: solid 1px black;
+            color: blue;
+            outline: none;
+            font-weight: bold;
+            margin: 10px;
+            padding: 5px;
+        }
+    }
+
+    .error-div {
+        p {
+            color: red;
+            font-weight: bold;
+        }
+    }
+
+    .success-div {
+        p {
+            color: green;
+            font-weight: bold;
+        }
+    }
+}
+
+table {
+
+    border: solid 1px gray;
+    padding: 10px;
+
+    tr {
+        th {
+            text-align: left;
+        }
+
+        td {
+          padding: 10px;
+          width: 300px;  
+        }
+    }
+}
